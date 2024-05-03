@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
     "@streamflow/common": "^6.3.4",
     "@streamflow/distributor": "^6.3.4",
     "@streamflow/stream": "^6.3.4",
@@ -27,5 +30,12 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "overrides": {
+    "@solana/web3.js": "1.91.7",
+    "@ledgerhq/errors": "6.16.3"
+  },
+  "resolutions": {
+    "@ledgerhq/errors": "6.16.3"
   }
 }
