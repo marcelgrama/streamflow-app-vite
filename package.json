@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@streamflow/common": "^6.3.4",
+    "@streamflow/distributor": "^6.3.4",
+    "@streamflow/stream": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
