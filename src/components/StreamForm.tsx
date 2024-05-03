@@ -32,10 +32,13 @@ const StreamForm: React.FC<StreamFormProps> = ({ wallet }) => {
   const [selectedToken, setSelectedToken] = useState('');
   const [activeStreams, setActiveStreams] = useState<StreamData[]>([]);
 
+  // Effect hook to fetch token balances and active streams when wallet state changes
   useEffect(() => {
     const connection = new Connection(SOLANA_CLUSTER_URL, 'confirmed');
     if (wallet.connected && wallet.publicKey) {
       const publicKey = wallet.publicKey;
+
+      // Function to fetch token balances
       const fetchTokenBalances = async () => {
         const balances = await connection.getTokenAccountsByOwner(publicKey, {
           programId: new PublicKey(
@@ -52,6 +55,7 @@ const StreamForm: React.FC<StreamFormProps> = ({ wallet }) => {
       };
       fetchTokenBalances();
 
+      // Function to fetch active streams
       const fetchActiveStreams = async () => {
         const client = new GenericStreamClient<IChain.Solana>({
           chain: IChain.Solana,
@@ -77,6 +81,7 @@ const StreamForm: React.FC<StreamFormProps> = ({ wallet }) => {
       return;
     }
 
+    // Get sender public key from wallet
     const senderPublicKey = wallet.publicKey;
     if (!senderPublicKey) {
       console.error(
